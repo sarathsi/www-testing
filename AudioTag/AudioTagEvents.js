@@ -49,7 +49,18 @@ function startup() {
 
 
  // browser is in the process of getting the media data
- audio1.addEventListener("progress", logEvent); 
+ //audio1.addEventListener("progress", logEvent); 
+ audio1.addEventListener('progress', function(event) {
+  logEvent(event);
+  var ranges = [];
+  for(var i = 0; i < audio1.buffered.length; i ++) {
+    ranges.push([
+      audio1.buffered.start(i),
+      audio1.buffered.end(i)
+      ]);
+    debugprint(audio1.buffered.start(i) + ", " + audio1.buffered.end(i));
+  }
+ }, false);
 
  // fetching the media data is stopped before it is completely loaded for whatever reason
  audio1.addEventListener("suspend", logEvent);
