@@ -1,0 +1,33 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <meta charset="UTF-8"/>
+</head>
+
+<script src="AudioTagEvents.js"></script>
+
+<body bgcolor="#FFFFFF">
+
+<!-- 
+preload: auto | metadata | none
+<audio src="media/sample.aac" controls="true"></audio> 
+<audio src="media/ChainSaw.mp3" controls="true" loop="false" autoplay="false"></audio> 
+<audio src="media/audiobuffersource-expected.wav" controls="controls" loop autoplay="true"></audio> <br>
+-->
+
+<audio id="audio1" src="audio/audiobuffersource-expected.wav" controls> </audio> <br><br>
+
+<button id="btnLoad"> Load </button>
+<button id="btnPlay"> Play </button>
+<button id="btnPause"> Pause </button>
+<button id="btnClearlog"> Clear Log </button>
+<br>
+
+<p id="log">  </p>
+
+</body>
+</html>
+
