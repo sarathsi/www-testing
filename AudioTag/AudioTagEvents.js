@@ -58,7 +58,7 @@ function startup() {
       audio1.buffered.start(i),
       audio1.buffered.end(i)
       ]);
-    debugprint(audio1.buffered.start(i) + ", " + audio1.buffered.end(i));
+    debugprint("buffered: " + audio1.buffered.start(i) + " - " + audio1.buffered.end(i) + "sec");
   }
  }, false);
 
@@ -72,30 +72,29 @@ function startup() {
  audio1.addEventListener("stalled", logEvent);
 
  var btnLoad = document.getElementById("btnLoad");
- var btnPlay = document.getElementById("btnPlay");
- var btnPause = document.getElementById("btnPause");
- var btnClearlog = document.getElementById("btnClearlog");
-
  btnLoad.onclick = function() {
-  debugprint("load()");
+  debugprint("== load btn click ==");
   audio1.load();
  };
 
+ var btnPlay = document.getElementById("btnPlay");
  btnPlay.onclick = function() {
-  debugprint("play()");
+  debugprint("== play btn click ==");
   audio1.play();
  };
 
+ var btnPause = document.getElementById("btnPause");
  btnPause.onclick = function() {
-  debugprint("pause()");
+  debugprint("== pause btn click ==");
   audio1.pause();
  };
 
+ var btnClearlog = document.getElementById("btnClearlog");
  btnClearlog.onclick = function() {
   document.getElementById("log").innerHTML = "";
  };
 
- debugprint("startup() done");
+ //debugprint("startup() done");
 }
 
 document.addEventListener( 'DOMContentLoaded', startup);
