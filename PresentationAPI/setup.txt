@@ -1,0 +1,19 @@
+Setup Wireless Display
+
+Requirements
+
+ Android 4.2 or newer device with Miracast protocol support.
+ A TV or display with an HDMI port.
+ A Miracast certified wireless display  display adapter, for example the Netgear PTV3000 (tested)
+ Plug the wireless display adapter into the display’s HDMI port.
+ On the Android device, open the ‘Settings’ app and select the ‘Display’ entry.
+ Turn on ‘Wireless display’ to connect to the available wireless display.
+Steps
+
+Note, that if you have no such wireless display adapter, but are willing to run the application on your device, Android gives you the option to use a simulated secondary display for testing purposes. This simulated display appears as an overlay on your device screen. To enable it:
+
+ Open the `Settings` app and select `Developer Options`.
+ Use the `Simulate Secondary Display` option to select a display to simulate. 
+
+
+

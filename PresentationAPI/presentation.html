@@ -1,0 +1,26 @@
+
+<html>
+ 
+<head>
+ 
+<script>
+window.addEventListener("message", function(event) {
+  var msg = event.data;
+ 
+  var elem = document.getElementById(“output”);
+ 
+  elem.innerHTML = msg;
+  event.source.postMessage("Hello from the secondary display", "*");
+});
+</script>
+ 
+</head>
+<body>
+ 
+Message from its opener:
+ 
+<div id=”output”>N/A</div>
+</body>
+</html>
+
+

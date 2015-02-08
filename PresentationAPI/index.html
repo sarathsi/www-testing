@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<script>
+// http://w3c.github.io/presentation-api/
+// http://html5hub.com/presentation-api-tutorial/
+// https://www.youtube.com/watch?v=zy0Bd0MCBLE&list=PLzeAXJqsfK3ErYXhDK546Sg7rxq839vK6
+// Check Chromecast devices, Android second screen simulation etc
+// Android Screen Monitor: https://code.google.com/p/android-screen-monitor/
+
+var presentationWindow = null;
+ 
+function onsuccess(w) {
+  presentationWindow = w;
+  w.postMessage("Hello from the opener page", "*");
+}
+ 
+function onerror(error) {
+  alert("Failed to requestShow: " + error.name);
+}
+ 
+function showPresentation() {
+  if (!navigator.presentation.displayAvailable) {
+    alert("No available display found.");
+    return;
+  }
+ 
+  navigator.presentation.addEventListener("displayavailablechange", function() {
+    if (!navigator.presentation.displayAvailable)
+      presentationWindow = null;
+  });
+  navigator.presentation.requestShow("content.html", onsuccess, onerror);
+}
+ 
+window.addEventListener("message", function(event) {
+  var msg = event.data;
+ 
+  var elem = document.getElementById(“msg”);
+ 
+  elem.innerHTML= ”Message from secondary display: ” + msg;
+});
+</script>
+</head>
+<body>
+<input type="button" onclick="showPresentation();" value=”Show Presentation”></input>
+ 
+<div id=”msg”>Message from secondary display: N/A</div>
+</body>
+</html>
+
+
